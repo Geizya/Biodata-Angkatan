@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BIODATA DIRI</title>
+    <link rel="stylesheet" href="dewi.css" />
+  </head>
+
+  <body>
+    <div style="text-transform: capitalize; text-align: center; margin-bottom: 100px">
+      <h1>BIODATA DIRI</h1>
+      <img src="geizya.jpeg" width="200px" />
+      <h3>Nama: Dewi Geizya</h3>
+      <h3>Nim: 240411100074</h3>
+      <h3>TTL: Sampang, 04 November 2005</h3>
+      <h3>Nomor: 085939450633</h3>
+      <h3>Alamat: Jl. Salak 9 No 7, Perumnas Kamal</h3>
+    </div>
+    <div>
+      <h1 style="text-align: center">About Me:</h1>
+      <p style="margin: 0px 250px; text-align: justify">Hi, perkenalkan nama saya Dewi geizya. Saya adalah mahasiswa Teknik Informatika di Universitas Trunojoyo Madura (UTM). Saya lahir di Sampang pada tanggal 04 November tahun 2005. Saat ini saya tinggal di perumnas kamal bersama Orang tua saya</p>
+    </div>
+    <div>
+      <h1 align="center">BIODATA ANGKATAN 24</h1>
+      <div class="biodata-container" id="biodata-container"></div>
+    </div>
+
+    <script>
+      fetch("data.json")
+        .then((response) => response.json())
+        .then((data) => displayData(data))
+        .catch((error) => console.error("Error fetching data:", error));
+
+      function displayData(data) {
+        const container = document.getElementById("biodata-container");
+        data.forEach((item) => {
+          const biodataDiv = document.createElement("div");
+          biodataDiv.className = "biodata-teman";
+
+          biodataDiv.innerHTML = `
+            <img src="${item.fotoformal}" alt="Foto Formal" />
+            <p>Nama: ${item.nama}</p>
+            <p>NIM: ${item.nim}</p>
+            <p>TTL: ${item.ttl}</p>
+            <p>Nomor: ${item.no}</p>
+            <p>Alamat: ${item.alamat}</p>
+          `;
+
+          container.appendChild(biodataDiv);
+        });
+      }
+    </script>
+  </body>
+</html>

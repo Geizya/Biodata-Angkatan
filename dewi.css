@@ -1,0 +1,31 @@
+body {
+  background-color: pink;
+}
+
+.biodata-teman {
+  border: solid black;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 50px;
+}
+
+.biodata-teman img {
+  width: 100px;
+  height: auto;
+  border-radius: 25px;
+  margin: 0px 40%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.biodata-teman p {
+  text-align: center;
+  font-weight: bold;
+}
+
+.biodata-container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
